@@ -1,25 +1,37 @@
-on: [push]
+name: go_echo
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  basic_unit_test:
-    name: "Unit Test"
-    concurrency: unit
+
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: "Unit tests"
-        run:  |
-          go get
-          go test .
-  on_k8s_test:
-    name: "Deploy to K8s"
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test
+        run: go test -v ./...
+  aks_setup:
+    name: "deploy aks cluster"
     concurrency: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: gambtho/aks_create_action@master
         with:
-          CLUSTER_NAME: "actionTest"
+          CLUSTER_NAME: "go_echo"
           RESOURCE_GROUP_NAME: ${{ secrets.RESOURCE_GROUP_NAME }}
           STORAGE_ACCOUNT_NAME: ${{ secrets.STORAGE_ACCOUNT_NAME }}
           STORAGE_CONTAINER_NAME: ${{ secrets.STORAGE_CONTAINER_NAME }}
