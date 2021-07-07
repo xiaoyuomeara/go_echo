@@ -1,11 +1,12 @@
 package main
-import (
-"net/http"
-"net/http/httptest"
-"testing"
 
-"github.com/labstack/echo/v4"
-"github.com/stretchr/testify/assert"
+import (
+	"net/http"
+	"net/http/httptest"
+	"testing"
+
+	"github.com/labstack/echo/v4"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGetGhost(t *testing.T) {
