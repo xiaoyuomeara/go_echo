@@ -1,3 +1,5 @@
+[![go_echo](https://github.com/gambtho/go_echo/actions/workflows/test.yml/badge.svg)](https://github.com/gambtho/go_echo/actions/workflows/test.yml)
+
 # go_echo
 
 Simple api that returns an echo, or a spooky response
