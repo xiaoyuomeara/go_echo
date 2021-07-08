@@ -2,7 +2,7 @@
 FROM golang:1.16 AS builder
 WORKDIR /go/src/github.com/gambtho/go_echo/
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main.go .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o go_echo .
 
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
