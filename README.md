@@ -2,7 +2,7 @@
 
 # go_echo
 
-Simple api that returns an echo, or a spooky response
+Simple api that returns an echo, or a default response
 
 ## Usage
 
