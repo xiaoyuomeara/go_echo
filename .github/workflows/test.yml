@@ -84,5 +84,5 @@ jobs:
           images: |
             ${{ secrets.CLUSTER_NAME }}.azurecr.io/${{ secrets.APP_NAME }}:${{ github.sha }}
           imagepullsecrets: |
-            ${{ env.SECRET }}
+            ${{ secrets.SECRET_NAME }}
           namespace: ${{ secrets.NAMESPACE }}
