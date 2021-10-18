@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: echogo.azurecr.io/echogo
+          image: goechotest.azurecr.io/echogo
           ports:
             - containerPort: 1323
