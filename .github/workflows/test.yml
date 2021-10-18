@@ -80,7 +80,6 @@ jobs:
           manifests: |
             manifests/deployment.yaml
             manifests/service.yaml
-            manifests/ingress.yaml
           images: |
             ${{ secrets.CLUSTER_NAME }}.azurecr.io/${{ secrets.APP_NAME }}:${{ github.sha }}
           imagepullsecrets: |
