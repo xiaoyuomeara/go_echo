@@ -1,4 +1,4 @@
-name: go_echo
+name: go_echo_1
 
 on:
   push:
