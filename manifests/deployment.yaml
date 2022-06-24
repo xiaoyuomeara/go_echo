@@ -15,7 +15,7 @@ spec:
         app: goecho
     spec:
       containers:
-        - name: nginx
-          image: goechotest.azurecr.io/goecho
+        - name: goecho
+          image: goechovalidation.azurecr.io/latest
           ports:
             - containerPort: 1323
