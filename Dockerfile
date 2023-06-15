@@ -1,11 +1,11 @@
-# syntax=docker/dockerfile:1
-FROM golang:1.16 AS builder
-WORKDIR /go/src/github.com/gambtho/go_echo/
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o go_echo .
+FROM node:19
+ENV PORT 3000
+EXPOSE 3000
 
-FROM alpine:latest
-RUN apk --no-cache add ca-certificates
-WORKDIR /root/
-COPY --from=builder /go/src/github.com/gambtho/go_echo/go_echo .
-CMD ["./go_echo"]
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json .
+RUN npm install
+COPY . .
+
+CMD ["npm", "start"]
